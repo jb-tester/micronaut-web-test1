@@ -1,0 +1,7 @@
+###
+GET http://localhost:8081/test0/{{myvar0}}
+
+###
+GET http://localhost:8081/test0/{{myvar0}}/2/{{my-var02}}
+
+###

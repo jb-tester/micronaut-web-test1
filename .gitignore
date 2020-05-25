@@ -1,0 +1,6 @@
+# Project exclude paths
+/web-test1-client/target/
+/web-test1-server/target/
+
+# Editor-based HTTP Client requests
+http-client.private.env.json
