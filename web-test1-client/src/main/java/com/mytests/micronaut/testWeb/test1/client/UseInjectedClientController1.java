@@ -9,7 +9,6 @@ import io.micronaut.http.uri.UriBuilder;
 import io.reactivex.Maybe;
 
 import javax.inject.Inject;
-
 import java.util.Map;
 
 import static io.micronaut.http.HttpRequest.GET;
@@ -23,15 +22,15 @@ import static io.micronaut.http.HttpRequest.GET;
 @Controller
 public class UseInjectedClientController1 {
 
-    @Client("http://localhost:8081/simple/c1")    // no endpoints
+    @Client("http://localhost:8081/simple/c1")    // no endpoints - https://youtrack.jetbrains.com/issue/IDEA-239689
     @Inject
     RxHttpClient httpClient;
-    
-    
+
+
     @Get("/client/simple1/test00")
-    public Maybe<String> test00(){
+    public Maybe<String> test00() {
         return httpClient.retrieve(GET("/test0")).firstElement();
-    }       // url parts usages search doesn't consider the client
+    }       // url parts usages search doesn't consider the client url  - see the above request and related ones
     
     @Get("/client/simple1/test01/{v0}")
     public Maybe<String> test01(@PathVariable String v0){
@@ -40,7 +39,8 @@ public class UseInjectedClientController1 {
     
     @Get("/client/simple1/test02/{v0}/{v1}")
     public Maybe<String> test02(@PathVariable String v0, @PathVariable String v1){
-        String uri = UriBuilder.of("/test2/{my_var}/{my_var2}").expand(Map.of("my_var",v0,"my_var2",v1)).toString();   // UriBuilder uri is not treated as uri at all
+        String uri =
+                UriBuilder.of("/test2/{my_var}/{my_var2}").expand(Map.of("my_var", v0, "my_var2", v1)).toString();   // UriBuilder uri is not treated as uri at all  https://youtrack.jetbrains.com/issue/IDEA-239700
         return httpClient.retrieve(uri).firstElement();
     }
 }

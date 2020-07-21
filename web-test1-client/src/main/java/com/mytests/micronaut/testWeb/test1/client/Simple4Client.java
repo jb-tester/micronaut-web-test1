@@ -14,6 +14,6 @@ import io.reactivex.Single;
 @Client(value = "http://localhost:8081/simple/c4")
 public interface Simple4Client {
     
-    @Get("/test0")   // correct endpoint is used, but probably no live template should be used for the host:port part while generating request in http client
+    @Get("/test0")
     Single<String> test0();
 }

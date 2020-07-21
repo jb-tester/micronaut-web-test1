@@ -3,7 +3,6 @@ package com.mytests.micronaut.testWeb.test1.client;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
-import io.micronaut.http.client.DefaultHttpClient;
 import io.micronaut.http.client.RxHttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.http.uri.UriBuilder;
@@ -23,7 +22,7 @@ import static io.micronaut.http.HttpRequest.GET;
 @Controller
 public class UseInjectedClientController2 {
 
-    @Client("simple2")   // no references to application.yaml
+    @Client("simple2")   // no references to application.yaml https://youtrack.jetbrains.com/issue/IDEA-239670 
     @Inject RxHttpClient client;
     
     

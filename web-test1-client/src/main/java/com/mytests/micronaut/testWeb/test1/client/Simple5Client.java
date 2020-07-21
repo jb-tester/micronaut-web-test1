@@ -10,7 +10,8 @@ import io.reactivex.Single;
  * <p>Project: micronaut-web-test1</p>
  * *******************************
  */
-@Client(id="simple5", path = "/simple/c5")   // incorrect endpoint here
+@Client(id = "simple5", path = "/simple/c5")
+// incorrect endpoint here  https://youtrack.jetbrains.com/issue/IDEA-239679
 public interface Simple5Client {
     
     @Get("/test0")
