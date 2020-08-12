@@ -5,9 +5,11 @@ micronaut:
         url: http://localhost:8081
         path: /simple/c2
       simple3:
-        url: http://localhost:8081 
+        url: http://localhost:8081
         path: /simple/c3
       simple5:
+        url: http://localhost:8081
+      localhost:8081/:
         url: http://localhost:8081
 simple6_host: localhost:8081       
 simple6_base_path: simple/c6
